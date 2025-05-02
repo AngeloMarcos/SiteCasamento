@@ -1,0 +1,16 @@
+.guest-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.guest-table th,
+.guest-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+.guest-table th {
+  background: var(--accent);
+  color: white;
+}

@@ -1,0 +1,193 @@
+/* Reset e fontes */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  /* caminho relativo correto para CRA */
+  background: url('./assets/gallery_wappapper.png') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Container principal full-width */
+.container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* HEADER: banner + navbar */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* Banner com faixa e título sobreposto */
+.banner {
+  position: relative;
+  display: inline-block;
+}
+
+.banner .faixa {
+  display: block;
+  width: 800px;  /* ajuste conforme desejar */
+  height: auto;
+}
+
+.banner .titulo {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #e65dcfee;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  white-space: nowrap;
+  z-index: 1;
+}
+
+/* Navbar e botões */
+.navbar {
+  display: inline-block;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1rem;
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.nav-button:hover {
+  background: rgba(255,255,255,0.4);
+  border-color: rgba(255,255,255,0.8);
+}
+
+/* GALERIA DE POLAROIDS */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.polaroid {
+  background: white;
+  padding: 10px 10px 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  width: 250px;
+  margin: 20px;
+  transition: transform 0.3s;
+}
+
+.polaroid:hover {
+  transform: scale(1.05);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+}
+
+.polaroid figcaption {
+  margin-top: 10px;
+  text-align: center;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.125rem;
+  color: #444;
+}
+
+/* Seções com overflow para tabelas largas */
+section {
+  margin-top: 40px;
+  overflow-x: auto;
+}
+
+/* TABELA DE CONVIDADOS */
+.convidados-table {
+  width: 100%;        /* agora full-width */
+  margin: 0 auto 60px;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.9);
+}
+
+.convidados-table th,
+.convidados-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.convidados-table th {
+  background-color: #f7f7f7;
+  text-align: left;
+}
+
+.convidados-table tr:nth-child(even) {
+  background-color: #fcfcfc;
+}
+
+/* TABELA DE PRESENTES */
+.presentes-section {
+  margin-top: 60px;
+}
+
+.presentes-table {
+  width: 100%;        /* também full-width */
+  margin: 20px auto 60px;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.9);
+}
+
+.presentes-table th,
+.presentes-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.presentes-table th {
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+.presentes-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.presentes-table a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.presentes-table a:hover {
+  text-decoration: underline;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .banner .faixa {
+    width: 80%;
+  }
+  .nav-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+  .polaroid {
+    width: 45%;
+  }
+}
