@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  /* caminho relativo correto para CRA */
   background: url('./assets/gallery_wappapper.png') no-repeat center center fixed;
+
   background-size: cover;
 }
 
