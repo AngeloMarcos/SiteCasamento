@@ -1,37 +1,16 @@
 // src/ConvidadosTable.js
-import React, { useEffect, useState } from 'react';
-import './App.css';  // caso deseje usar os estilos já no App.css
+import React from 'react';
+import './Table.css'; // css compartilhado com PresentesTable
 
-export default function ConvidadosTable() {
-  const [convidados, setConvidados] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchConvidados() {
-      try {
-        const res = await fetch('/api/convidados');
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
-        const data = await res.json();
-        setConvidados(data);
-      } catch (err) {
-        console.error('Erro ao buscar convidados:', err);
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchConvidados();
-  }, []);
-
+export default function ConvidadosTable({ convidados, loading, error }) {
   if (loading) {
-    return <p>Carregando convidados...</p>;
+    return <p className="table-status">Carregando convidados...</p>;
   }
   if (error) {
-    return <p style={{ color: 'red' }}>Erro: {error}</p>;
+    return <p className="table-status error">Erro ao carregar: {error}</p>;
   }
-  if (convidados.length === 0) {
-    return <p>Não há convidados cadastrados ainda.</p>;
+  if (!convidados || convidados.length === 0) {
+    return <p className="table-status">Nenhum convidado cadastrado.</p>;
   }
 
   return (

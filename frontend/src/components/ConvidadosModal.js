@@ -1,6 +1,6 @@
 // src/components/ConvidadosModal.js
 import React from 'react';
-import './ConvidadosModal.css';
+import '../Table.css';
 
 export default function ConvidadosModal({ isOpen, onClose, convidados }) {
   if (!isOpen) return null;
