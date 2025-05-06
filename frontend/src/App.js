@@ -1,4 +1,3 @@
-// src/App.js
 import React, { useMemo, useState, useEffect } from 'react';
 import './App.css';
 
@@ -49,7 +48,7 @@ export default function App() {
   const [isGuestModalOpen, setGuestModalOpen] = useState(false);
   const [isGiftModalOpen,  setGiftModalOpen]  = useState(false);
 
-  // dados de convidados (fetch)
+  // dados de convidados (fetch apenas aqui)
   const [convidados, setConvidados] = useState([]);
   useEffect(() => {
     fetch('/api/convidados')
