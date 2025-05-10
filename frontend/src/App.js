@@ -10,7 +10,7 @@ import img7            from './assets/img7.png'
 import img8            from './assets/img8.png'
 import img9            from './assets/img9.png'
 import img10           from './assets/img10.png'
-
+import Invitation from './components/Invitation';
 import Modal           from './components/Modal'
 import ConvidadosTable from './ConvidadosTable'
 import PresentesTable  from './PresentesTable'
@@ -43,7 +43,11 @@ export default function App() {
       })),
     []
   )
+  const [isInvitationOpen, setInvitationOpen] = useState(false);
 
+  const openInvitation  = () => setInvitationOpen(true);
+  const closeInvitation = () => setInvitationOpen(false);
+  
   const [isGuestModalOpen, setGuestModalOpen] = useState(false)
   const [isGiftModalOpen,  setGiftModalOpen]  = useState(false)
   const [isInvitationModalOpen,  setInvitationModalOpen]  = useState(false)
@@ -112,7 +116,11 @@ export default function App() {
         onClose={() => setInvitationModalOpen(false)}
         title="Lista de Convidados"
       >
-        <Invitation convidados={convidados} />
+      <Invitation
+  isOpen={isInvitationOpen}
+  onClose={closeInvitation}
+/>
+
       </Modal>
 
     </div>
