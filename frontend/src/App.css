@@ -1,13 +1,11 @@
-/* Reset e fontes */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
-  background: url('./assets/gallery_wappapper.png') no-repeat center center fixed;
-
-  background-size: cover;
+  background: linear-gradient(
+    120deg,
+    #6B7280 0%,
+    #ffd15c 80%,
+    #ffcd27 100%
+  );
 }
-
 /* Container principal full-width */
 .container {
   width: 100%;
@@ -59,8 +57,9 @@ body {
 
 .nav-button {
   display: inline-block;
-  padding: 8px 16px;
+  padding: 12px 24px;
   font-size: 1rem;
+  margin: 2rem;
   color: #fff;
   background: rgba(255,255,255,0.2);
   border: 2px solid rgba(255,255,255,0.5);

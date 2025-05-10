@@ -90,5 +90,14 @@
       width: 100%;
       font-size: 1rem;
     }
+    
+.invitation-backdrop {
+  background: rgba(201,166,107,0.2);
+}
+
+.invitation-close {
+  color: #C9A66B;
+}
+
   }
   
