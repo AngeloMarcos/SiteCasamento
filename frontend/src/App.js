@@ -1,19 +1,19 @@
-import React, { useMemo, useState, useEffect } from 'react';
-import './App.css';
+import React, { useMemo, useState, useEffect } from 'react'
+import './App.css'
 
-import faixaImg        from './assets/faixa.png';
-import img1            from './assets/img3.png';
-import img2            from './assets/img4.png';
-import img3            from './assets/img3.png';
-import img6            from './assets/img6.png';
-import img7            from './assets/img7.png';
-import img8            from './assets/img8.png';
-import img9            from './assets/img9.png';
-import img10           from './assets/img10.png';
+import faixaImg        from './assets/faixa.png'
+import img1            from './assets/img3.png'
+import img2            from './assets/img4.png'
+import img3            from './assets/img3.png'
+import img6            from './assets/img6.png'
+import img7            from './assets/img7.png'
+import img8            from './assets/img8.png'
+import img9            from './assets/img9.png'
+import img10           from './assets/img10.png'
 
-import Modal           from './components/Modal';
-import ConvidadosTable from './ConvidadosTable';
-import PresentesTable  from './PresentesTable';
+import Modal           from './components/Modal'
+import ConvidadosTable from './ConvidadosTable'
+import PresentesTable  from './PresentesTable'
 
 const rawFotos = [
   { src: img1,  legenda: 'Nosso primeiro brinde 🍻' },
@@ -24,13 +24,13 @@ const rawFotos = [
   { src: img8,  legenda: 'Dias de sol e amor ☀️' },
   { src: img9,  legenda: 'Sorrisos que encantam 💖' },
   { src: img10, legenda: 'Nossa jornada juntos 🚀' },
-  // duplicações para preencher visual
+  // duplicações
   { src: img6,  legenda: 'Momentos de verão 🌞' },
   { src: img7,  legenda: 'Nosso amor florescendo 🌸' },
   { src: img8,  legenda: 'Dias de sol e amor ☀️' },
   { src: img9,  legenda: 'Sorrisos que encantam 💖' },
   { src: img10, legenda: 'Nossa jornada juntos 🚀' },
-];
+]
 
 export default function App() {
   const fotos = useMemo(
@@ -42,27 +42,26 @@ export default function App() {
         y:   (Math.random() * 40 - 20).toFixed(2),
       })),
     []
-  );
+  )
 
-  // estados para abrir/fechar modais
-  const [isGuestModalOpen, setGuestModalOpen] = useState(false);
-  const [isGiftModalOpen,  setGiftModalOpen]  = useState(false);
+  const [isGuestModalOpen, setGuestModalOpen] = useState(false)
+  const [isGiftModalOpen,  setGiftModalOpen]  = useState(false)
+  const [isInvitationModalOpen,  setInvitationModalOpen]  = useState(false)
 
-  // dados de convidados (fetch apenas aqui)
-  const [convidados, setConvidados] = useState([]);
+  const [convidados, setConvidados] = useState([])
   useEffect(() => {
     fetch('/api/convidados')
       .then(res => res.json())
       .then(setConvidados)
-      .catch(console.error);
-  }, []);
+      .catch(console.error)
+  }, [])
 
   return (
     <div className="container">
-      {/* HEADER com banner + navbar */}
+      {/* HEADER */}
       <header className="header">
         <div className="banner">
-          <img src={faixaImg} alt="Faixa decorativa" className="faixa" />
+          <img src={faixaImg} alt="Faixa" className="faixa" />
           <h1 className="titulo">Angelo & Talita</h1>
         </div>
         <nav className="navbar">
@@ -72,24 +71,26 @@ export default function App() {
           <button className="nav-button" onClick={() => setGiftModalOpen(true)}>
             Presentes
           </button>
+          <button className="nav-button" onClick={() => setInvitationModalOpen(true)}>
+            Convite
+          </button>
         </nav>
       </header>
 
-      {/* Galeria de Polaroids */}
+      {/* GALERIA */}
       <div className="gallery">
         {fotos.map((f, i) => (
           <figure
             key={i}
             className="polaroid"
-            style={{ transform: `translate(${f.x}px,${f.y}px) rotate(${f.rot}deg)` }}
+            style={{transform: `translate(${f.x}px,${f.y}px) rotate(${f.rot}deg)`}}
           >
             <img src={f.src} alt={f.legenda} />
             <figcaption>{f.legenda}</figcaption>
           </figure>
         ))}
       </div>
-
-      {/* Modal de Convidados */}
+      {/* MODAL DE CONVIDADOS */}
       <Modal
         isOpen={isGuestModalOpen}
         onClose={() => setGuestModalOpen(false)}
@@ -98,7 +99,7 @@ export default function App() {
         <ConvidadosTable convidados={convidados} />
       </Modal>
 
-      {/* Modal de Presentes */}
+      {/* MODAL DE PRESENTES */}
       <Modal
         isOpen={isGiftModalOpen}
         onClose={() => setGiftModalOpen(false)}
@@ -106,6 +107,14 @@ export default function App() {
       >
         <PresentesTable />
       </Modal>
+      <Modal
+        isOpen={isInvitationModalOpen}
+        onClose={() => setInvitationModalOpen(false)}
+        title="Lista de Convidados"
+      >
+        <Invitation convidados={convidados} />
+      </Modal>
+
     </div>
-  );
+  )
 }

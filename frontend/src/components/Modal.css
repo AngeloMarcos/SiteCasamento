@@ -1,184 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap');
-
 .modal-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  position: fixed; inset:0;
+  background: rgba(0,0,0,0.6);
+  display:flex; align-items:center; justify-content:center;
+  z-index:1000;
 }
 .modal-window {
-  border: 2px solid #d4af37;
-  background: #fff;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 700px;
-  max-height: 90%;
-  overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
+  background:#fff; border-radius:8px;
+  width:90%; max-width:700px; max-height:80%; overflow:auto;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
 }
 .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background: #f5f5f5;
-  border-bottom: 2px solid #d4af37;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem; border-bottom:1px solid #ddd;
 }
-.modal-header h2 {
-
-  margin: 0;
-  font-family: 'Great Vibes', cursive;
-  background: linear-gradient(45deg, #d4af37, #fff 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: #d4af37;
-  font-size: 2.5rem;    
-  line-height: 1.2;     
-}
+.modal-header h2 { margin:0; font-size:1.5rem; }
 .modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #333;
+  background:transparent; border:none; font-size:1.5rem; cursor:pointer;
 }
-.modal-body {
-  padding: 1rem 1.5rem 2rem;
-  flex: 1;
-  overflow-x: auto;
-}
+.modal-body { padding:1rem; }
 
-/* tabela dentro do modal */
-.modal-body table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Playfair Display', serif;
-  color: #333;
-}
-.modal-body tr:nth-child(even) {
-  background: rgba(0, 0, 0, 0.02);
-}
-/* cabeçalho dourado */
-.modal-body th {
-  background: #d4af37;
-  color: #fff;
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-/* linhas alternadas suaves */
-.modal-body tr:nth-child(even) {
-  background: rgba(0,0,0,0.02);
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .modal-window {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-  .modal-body table {
-    font-size: 0.95rem;
-  }
-  .modal-body th:nth-child(4),
-  .modal-body td:nth-child(4) {
-    display: none;
-  }
-}
-/* src/components/Modal.css */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-.modal-window {
-  background: #fff;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 700px;
-  max-height: 90%;
-  overflow-y: auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-}
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background: #f5f5f5;
-  border-bottom: 2px solid #d4af37;
-}
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.75rem;
-  color: #333;
-}
-.modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #333;
-}
-.modal-body {
-  padding: 1rem 1.5rem 2rem;
-  flex: 1;
-  overflow-x: auto;
-}
-
-/* tabela dentro do modal */
-.modal-body table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-}
-.modal-body th,
-.modal-body td {
-  padding: 0.75rem 1rem;
-  text-align: left;
-  border-bottom: 1px solid #e0e0e0;
-  font-size: 1.1rem; /* fonte levemente maior */
-}
-/* cabeçalho dourado */
-.modal-body th {
-  background: #d4af37;
-  color: #fff;
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-/* linhas alternadas suaves */
-.modal-body tr:nth-child(even) {
-  background: rgba(0,0,0,0.02);
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .modal-window {
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-  }
-  .modal-body table {
-    font-size: 0.95rem;
-  }
-  /* esconde a coluna Observações em telas pequenas */
-  .modal-body th:nth-child(4),
-  .modal-body td:nth-child(4) {
-    display: none;
-  }
-}
+/* aumenta até 2× */
+.modal-window, .modal-header h2, .modal-body { font-size:1.2em; }

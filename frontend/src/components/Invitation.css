@@ -1,0 +1,94 @@
+.invitation-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: #F9EDE3; /* fundo rosé suave */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .corner {
+    position: absolute;
+    width: 30vmin;
+    max-width: 300px;
+    opacity: 0.8;
+  }
+  .corner--top-left {
+    top: 0;
+    left: 0;
+  }
+  .corner--bottom-right {
+    bottom: 0;
+    right: 0;
+  }
+  
+  .invitation-card {
+    position: relative;
+    background: rgba(255,255,255,0.95);
+    border: 4px solid #D4AF37; /* dourado */
+    border-radius: 16px;
+    padding: 2rem;
+    max-width: 360px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+  
+  .invitation-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid #D4AF37;
+  }
+  
+  .invitation-names {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  .invitation-date,
+  .invitation-loc {
+    font-family: 'Playfair Display', serif;
+    margin: .5rem 0;
+    color: #555;
+  }
+  
+  .invitation-button {
+    margin-top: 1.5rem;
+    padding: .75rem 1.5rem;
+    font-size: 1.125rem;
+    font-family: 'Poppins', sans-serif;
+    background: #D4AF37;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: background .3s, transform .2s;
+  }
+  
+  .invitation-button:hover {
+    background: #b8912e;
+    transform: translateY(-2px);
+  }
+  
+  /* responsivo */
+  @media (max-width: 480px) {
+    .invitation-card {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+    .invitation-names {
+      font-size: 2rem;
+    }
+    .invitation-button {
+      width: 100%;
+      font-size: 1rem;
+    }
+  }
+  
