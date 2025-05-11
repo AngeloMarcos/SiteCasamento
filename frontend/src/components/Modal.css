@@ -1,108 +1,23 @@
-/* ---------- Modal Overlay ---------- */
 .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
+  position: fixed; inset:0;
+  background: rgba(0,0,0,0.6);
+  display:flex; align-items:center; justify-content:center;
+  z-index:1000;
 }
-
-/* ---------- Janela do Modal ---------- */
 .modal-window {
-  position: relative;
-  background: #fff;
-  border-radius: 8px;
-  width: 70%;
-  max-width: 700px;
-  max-height: 80%;
-  overflow: auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,0.8) transparent;
+  background:#fff; border-radius:8px;
+  width:90%; max-width:700px; max-height:80%; overflow:auto;
+  box-shadow:0 4px 20px rgba(0,0,0,0.3);
 }
-
-/* Chrome, Safari e Opera */
-.modal-window::-webkit-scrollbar {
-  width: 6px;
-}
-.modal-window::-webkit-scrollbar-track {
-  background: transparent;
-}
-.modal-window::-webkit-scrollbar-thumb {
-  background-color: rgba(212,175,55,0.8);
-  border-radius: 3px;
-}
-
-/* ---------- Cabeçalho do Modal ---------- */
 .modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid #ddd;
-  background: rgba(255,255,255,0.2); /* fundo semi-transparente */
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1rem; border-bottom:1px solid #ddd;
 }
-.modal-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  font-family: 'Dancing Script', cursive;
-  color: #e65dcfee;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-}
+.modal-header h2 { margin:0; font-size:1.5rem; }
 .modal-close {
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #333;
+  background:transparent; border:none; font-size:1.5rem; cursor:pointer;
 }
+.modal-body { padding:1rem; }
 
-/* ---------- Corpo do Modal ---------- */
-.modal-body {
-  padding: 1rem;
-  font-size: 1.2em;
-}
-
-/* ---------- Responsividade Mobile ---------- */
-@media (max-width: 600px) {
-  .modal-window {
-    width: 95%;        /* quase toda a largura */
-    max-width: 95%;    /* ignora o max anterior */
-    max-height: 90%;   /* deixa respiro acima e abaixo */
-    margin: 1rem auto; /* centra e adiciona folga vertical */
-    border-radius: 6px;
-  }
-
-  /* Tabela de convidados em mobile */
-  .modal-body table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
-    font-size: 0.9rem;
-  }
-  .modal-body table th,
-  .modal-body table td {
-    padding: 0.5rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  /* Esconde colunas menos críticas */
-  .modal-body table th:nth-child(3),
-  .modal-body table td:nth-child(3),
-  .modal-body table th:nth-child(5),
-  .modal-body table td:nth-child(5) {
-    display: none;
-  }
-  /* Mais espaço para Nome e RSVP */
-  .modal-body table th:nth-child(1),
-  .modal-body table td:nth-child(1),
-  .modal-body table th:nth-child(2),
-  .modal-body table td:nth-child(2) {
-    width: 50%;
-  }
-}
+/* aumenta até 2× */
+.modal-window, .modal-header h2, .modal-body { font-size:1.2em; }

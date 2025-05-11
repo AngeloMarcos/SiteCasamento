@@ -1,56 +1,64 @@
-/* ---------- Fundo da página ---------- */
+/* ================================================== */
+/*                    Fundo da página                 */
+/* ================================================== */
 body {
-  background: linear-gradient(
-    120deg,
-    #6B7280 0%,
-    #ffd15c 80%,
-    #ffcd27 100%
-  );
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #6B7280 0%, #ffd15c 80%, #ffcd27 100%);
+  color: #333;
 }
 
-/* ---------- Container Principal ---------- */
+/* ================================================== */
+/*                    Container Geral                 */
+/* ================================================== */
 .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #5a5f85 0%, #f6c746 100%);
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+
+/* ================================================== */
+/*                        HEADER                      */
+/* ================================================== */
+.header {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 20px;
   box-sizing: border-box;
-}/* -----------------------------------
-   1) Realinhamento do título na faixa
-   ----------------------------------- */
+}
+
 .banner {
   position: relative;
+  flex-shrink: 0;
 }
 
 .banner .faixa {
-  display: block;
-  width: 100%;
+  width: 300px;
   height: auto;
 }
 
 .banner .titulo {
   position: absolute;
-  /* suba um pouco o texto para cair no centro da faixa */
-  top: 75%;
-  left: 50%;
-  transform: translate(-50%, -55%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
   margin: 0;
   font-family: 'Dancing Script', cursive;
-  /* mantém responsivo mas centralizado certinho */
-  font-size: clamp(1.7rem, 5vw, 3.5rem);
-  color: #fdda68ee;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: #fdda68;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
   white-space: nowrap;
   z-index: 1;
 }
 
-
 .navbar {
   display: flex;
-  flex: 1 1 300px;
-  justify-content: flex-end;
   gap: 1rem;
 }
 
@@ -64,19 +72,23 @@ body {
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
 }
-
 .nav-button:hover {
   background: rgba(255,255,255,0.6);
   border-color: rgba(255,255,255,0.9);
 }
 
-/* ========== GALERIA DE POLAROIDS ========== */
+/* ================================================== */
+/*                 GALERIA DE POLAROIDS               */
+/* ================================================== */
 .gallery {
+  width: 100%;
+  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
   justify-items: center;
-  padding: 20px 0;
+  padding: 2rem 20px;
+  box-sizing: border-box;
 }
 
 .polaroid {
@@ -85,20 +97,17 @@ body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.3);
   width: 100%;
   max-width: 250px;
-  transition: transform 0.3s;
   border-radius: 8px;
+  transition: transform 0.3s;
 }
-
 .polaroid:hover {
   transform: scale(1.05);
 }
-
 .polaroid img {
   width: 100%;
   height: auto;
   border-radius: 4px;
 }
-
 .polaroid figcaption {
   margin-top: 0.75rem;
   text-align: center;
@@ -107,133 +116,152 @@ body {
   color: #444;
 }
 
-/* ========== SEÇÕES COM OVERFLOW PARA TABELAS ========== */
+/* ================================================== */
+/*                   SEÇÕES & TABELAS                 */
+/* ================================================== */
 section {
-  margin-top: 40px;
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 2rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
   overflow-x: auto;
 }
 
-/* ========== TABELA DE CONVIDADOS ========== */
-.convidados-table {
+table {
   width: 100%;
-  margin: 0 auto 60px;
   border-collapse: collapse;
-  background: rgba(255,255,255,0.9);
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.convidados-table th,
-.convidados-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+/* Cabeçalho em dourado */
+th {
+  background: #d4af37;
+  color: #fff;
+  padding: 12px 10px;
   text-align: left;
+  font-weight: 600;
+  font-size: 1.1rem;
 }
 
-.convidados-table th {
-  background-color: #f7f7f7;
+td {
+  padding: 10px;
+  color: #333;
 }
 
-.convidados-table tr:nth-child(even) {
-  background-color: #fcfcfc;
+tr:nth-child(even) td {
+  background: #f9f7f2;
 }
 
-/* ========== TABELA DE PRESENTES ========== */
-.presentes-table {
-  width: 100%;
-  margin: 20px auto 60px;
-  border-collapse: collapse;
-  background: rgba(255,255,255,0.9);
-}
-
-.presentes-table th,
-.presentes-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: left;
-}
-
-.presentes-table th {
-  background-color: #f0f0f0;
-}
-
-.presentes-table tr:nth-child(even) {
-  background-color: #fafafa;
-}
-
+/* Links na tabela de presentes */
 .presentes-table a {
-  color: #0066cc;
+  color: #d48910;
   text-decoration: none;
+  font-weight: 500;
 }
-
 .presentes-table a:hover {
   text-decoration: underline;
 }
 
-/* ========== RESPONSIVO ========== */
-/* -----------------------------------
-   2) Fotos menores e “2 por linha” no mobile
-   ----------------------------------- */
-@media (max-width: 768px) {
-  /* ajusta grid para colunas mínimas de 120px */
-  .gallery {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 10px;
-    padding: 10px 0;
-  }
-
-  /* limita cada polaroid a 150px de largura */
-  .polaroid {
-    max-width: 150px;
-    padding: 0.5rem 0.5rem 1rem;
-  }
-
-  .polaroid figcaption {
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-  }
+/* ================================================== */
+/*                     MODAL BASE                     */
+/* ================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-/* ---------- Ajustes para Mobile (≤ 768px) ---------- */
+.modal-window {
+  background: #fff;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 1rem 1.5rem;
+  flex: 1;
+}
+
+/* Aumenta fontes do modal em até 1.2× */
+.modal-window,
+.modal-header h2,
+.modal-body {
+  font-size: 1.2em;
+}
+
+/* ================================================== */
+/*                     RESPONSIVO                     */
+/* ================================================== */
 @media (max-width: 768px) {
-  /* Header: centraliza logo e botões em colunas de 100% */
+
+  /* Header vira coluna */
   .header {
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
     padding: 1rem;
+    gap: 1rem;
   }
-  .banner,
-  .navbar {
-    flex: 1 1 100%;
-    text-align: center;
-    max-width: 100%;
-  }
-  /* Botões menores e lado a lado */
-  .navbar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  .nav-button {
-    flex: 1 1 auto;
-    max-width: 160px;
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-    margin: 0;
-  }
+  .banner .faixa { width: 5rem; }
+  .navbar { flex-wrap: wrap; justify-content: center; }
+  .nav-button { flex: 1 1 120px; margin: 0.5rem; }
 
-  /* Galeria: 2 colunas mínimas, fotos um pouco menores */
+  /* Galeria 2 colunas mínimas */
   .gallery {
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 10px;
-    padding: 10px 0;
+    gap: 12px;
+    padding: 1rem;
   }
   .polaroid {
-    max-width: 7rem;
+    max-width: 180px;
     padding: 0.75rem 0.75rem 1.5rem;
   }
-  .polaroid figcaption {
-    font-size: 1rem;
+  .polaroid figcaption { font-size: 1rem; }
+
+  /* Tabela adaptada */
+  th, td { padding: 8px; font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 0.5rem;
   }
+  .polaroid { max-width: 100%; }
+  table { font-size: 0.9rem; }
 }
