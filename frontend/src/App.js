@@ -1,20 +1,20 @@
-import React, { useMemo, useState, useEffect } from 'react'
-import './App.css'
+import React, { useMemo, useState, useEffect } from 'react';
+import './App.css';
 
-import faixaImg        from './assets/faixa.png'
-import img1            from './assets/img3.png'
-import img2            from './assets/img4.png'
-import img3            from './assets/img3.png'
-import img6            from './assets/img6.png'
-import img7            from './assets/img7.png'
-import img8            from './assets/img8.png'
-import img9            from './assets/img9.png'
-import img10           from './assets/img10.png'
+import faixaImg from './assets/faixa.png';
+import img1 from './assets/img3.png';
+import img2 from './assets/img4.png';
+import img3 from './assets/img3.png';
+import img6 from './assets/img6.png';
+import img7 from './assets/img7.png';
+import img8 from './assets/img8.png';
+import img9 from './assets/img9.png';
+import img10 from './assets/img10.png';
+
 import Invitation from './components/Invitation';
-import RSVPForm from './components/RSVPForm';
-import Modal           from './components/Modal'
-import ConvidadosTable from './ConvidadosTable'
-import PresentesTable  from './PresentesTable'
+import Modal from './components/Modal';
+import ConvidadosTable from './ConvidadosTable';
+import PresentesTable from './PresentesTable';
 
 const rawFotos = [
   { src: img1,  legenda: 'Nosso primeiro brinde 🍻' },
@@ -31,7 +31,7 @@ const rawFotos = [
   { src: img8,  legenda: 'Dias de sol e amor ☀️' },
   { src: img9,  legenda: 'Sorrisos que encantam 💖' },
   { src: img10, legenda: 'Nossa jornada juntos 🚀' },
-]
+];
 
 export default function App() {
   const fotos = useMemo(
@@ -43,23 +43,27 @@ export default function App() {
         y:   (Math.random() * 40 - 20).toFixed(2),
       })),
     []
-  )
-  const [isInvitationOpen, setInvitationOpen] = useState(false);
+  );
 
-  const openInvitation  = () => setInvitationOpen(true);
-  const closeInvitation = () => setInvitationOpen(false);
-  
-  const [isGuestModalOpen, setGuestModalOpen] = useState(false)
-  const [isGiftModalOpen,  setGiftModalOpen]  = useState(false)
-  const [isInvitationModalOpen,  setInvitationModalOpen]  = useState(false)
+  // Estados para os modais
+  const [isGuestModalOpen, setGuestModalOpen] = useState(false);
+  const [isGiftModalOpen,  setGiftModalOpen]  = useState(false);
+  const [isInvitationModalOpen, setInvitationModalOpen] = useState(false);
 
-  const [convidados, setConvidados] = useState([])
+  // Dados dos convidados
+  const [convidados, setConvidados] = useState([]);
   useEffect(() => {
     fetch('/api/convidados')
       .then(res => res.json())
       .then(setConvidados)
-      .catch(console.error)
-  }, [])
+      .catch(console.error);
+  }, []);
+
+  // Ao confirmar presença, fecha o convite e abre os convidados
+  const handleRSVP = () => {
+    setInvitationModalOpen(false);
+    setGuestModalOpen(true);
+  };
 
   return (
     <div className="container">
@@ -88,13 +92,14 @@ export default function App() {
           <figure
             key={i}
             className="polaroid"
-            style={{transform: `translate(${f.x}px,${f.y}px) rotate(${f.rot}deg)`}}
+            style={{ transform: `translate(${f.x}px,${f.y}px) rotate(${f.rot}deg)` }}
           >
             <img src={f.src} alt={f.legenda} />
             <figcaption>{f.legenda}</figcaption>
           </figure>
         ))}
       </div>
+
       {/* MODAL DE CONVIDADOS */}
       <Modal
         isOpen={isGuestModalOpen}
@@ -112,18 +117,15 @@ export default function App() {
       >
         <PresentesTable />
       </Modal>
+
+      {/* MODAL DE CONVITE */}
       <Modal
         isOpen={isInvitationModalOpen}
         onClose={() => setInvitationModalOpen(false)}
-        title="Lista de Convidados"
+        title="Convite"
       >
-      <Invitation
-  isOpen={isInvitationOpen}
-  onClose={closeInvitation}
-/>
-
+        <Invitation onRSVP={handleRSVP} onClose={() => setInvitationModalOpen(false)} />
       </Modal>
-
     </div>
-  )
+  );
 }

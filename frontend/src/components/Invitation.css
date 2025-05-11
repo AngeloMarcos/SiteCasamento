@@ -80,8 +80,8 @@
   /* responsivo */
   @media (max-width: 480px) {
     .invitation-card {
-      margin: 1rem;
-      padding: 1.5rem;
+      margin: 2rem;
+      padding: 1.2rem;
     }
     .invitation-names {
       font-size: 2rem;
