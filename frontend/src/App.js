@@ -11,6 +11,7 @@ import img8            from './assets/img8.png'
 import img9            from './assets/img9.png'
 import img10           from './assets/img10.png'
 import Invitation from './components/Invitation';
+import RSVPForm from './components/RSVPForm';
 import Modal           from './components/Modal'
 import ConvidadosTable from './ConvidadosTable'
 import PresentesTable  from './PresentesTable'

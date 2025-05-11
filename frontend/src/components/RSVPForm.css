@@ -1,0 +1,33 @@
+.rsvp-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1100;
+}
+
+.rsvp-container {
+  background: #fff; padding: 2rem; border-radius: 8px;
+  width: 90%; max-width: 400px; position: relative;
+}
+
+.rsvp-close {
+  position: absolute; top: 0.5rem; right: 0.5rem;
+  background: none; border: none; font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.rsvp-form label {
+  display: block; margin-bottom: 1rem;
+}
+
+.rsvp-form input {
+  width: 100%; padding: 0.5rem; margin-top: 0.25rem;
+  border: 1px solid #ccc; border-radius: 4px;
+}
+
+.rsvp-submit {
+  margin-top: 1rem; padding: 0.5rem 1rem;
+  border: none; border-radius: 4px;
+  background: #D4AF37; color: #fff;
+  cursor: pointer;
+}

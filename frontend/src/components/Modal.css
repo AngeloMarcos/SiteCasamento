@@ -1,23 +1,55 @@
+/* ---------- Modal Overlay ---------- */
 .modal-overlay {
-  position: fixed; inset:0;
-  background: rgba(0,0,0,0.6);
-  display:flex; align-items:center; justify-content:center;
-  z-index:1000;
+  position: fixed; inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1000;
 }
-.modal-window {
-  background:#fff; border-radius:8px;
-  width:90%; max-width:700px; max-height:80%; overflow:auto;
-  box-shadow:0 4px 20px rgba(0,0,0,0.3);
-}
-.modal-header {
-  display:flex; justify-content:space-between; align-items:center;
-  padding:1rem; border-bottom:1px solid #ddd;
-}
-.modal-header h2 { margin:0; font-size:1.5rem; }
-.modal-close {
-  background:transparent; border:none; font-size:1.5rem; cursor:pointer;
-}
-.modal-body { padding:1rem; }
 
-/* aumenta até 2× */
-.modal-window, .modal-header h2, .modal-body { font-size:1.2em; }
+/* ---------- Janela do Modal (com scrollbar customizada) ---------- */
+.modal-window {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  width: 90%; max-width: 700px;
+  max-height: 80%;
+  overflow: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.8) transparent;
+}
+
+/* Chrome, Safari e Opera */
+.modal-window::-webkit-scrollbar {
+  width: 6px;
+}
+.modal-window::-webkit-scrollbar-track {
+  background: transparent;
+}
+.modal-window::-webkit-scrollbar-thumb {
+  background-color: rgba(212,175,55,0.8);
+  border-radius: 3px;
+}
+
+/* ---------- Remova completamente o fade overlay ---------- */
+.modal-window::before,
+.modal-window::after {
+  display: none;
+}
+
+/* ---------- Cabeçalho e Corpo do Modal ---------- */
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem; border-bottom: 1px solid #ddd;
+}
+.modal-header h2 { margin: 0; font-size: 1.5rem; }
+.modal-close {
+  background: transparent; border: none;
+  font-size: 1.5rem; cursor: pointer;
+}
+.modal-body {
+  padding: 1rem;
+  font-size: 1.2em;
+}

@@ -62,7 +62,7 @@ body {
   margin: 2rem;
   color: #fff;
   background: rgba(255,255,255,0.2);
-  border: 2px solid rgba(255,255,255,0.5);
+  border: 2px solid rgba(255, 255, 255, 0.171);
   border-radius: 4px;
   text-decoration: none;
   transition: background 0.3s, border-color 0.3s;
@@ -189,4 +189,8 @@ section {
   .polaroid {
     width: 45%;
   }
+}
+
+header, footer {
+  background-color: rgba(212,175,55,0.1);
 }

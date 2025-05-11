@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App'
-import RSVP from './components/pages/RSVP'
+import RSVP from './components/RSVP'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
