@@ -19,6 +19,8 @@ export default function Invitation({ onRSVP }) {
           Confirmar Presença
         </button>
       </div>
+
     </div>
   )
 }
+
