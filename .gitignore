@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+dist/
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.vscode/
+.idea/
+.DS_Store
+
+# Test coverage
+coverage/
+
+# Vercel local config
+.vercel/
+
+# Next.js build (se estiver usando)
+.next/
+
+# Não ignore package.json nem package-lock.json nem yarn.lock nem pnpm-lock.yaml
