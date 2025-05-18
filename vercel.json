@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
+    }
+  ],
+  "routes": [
+    // permite servir diretamente estáticos (CSS/JS/assets)
+    { "handle": "filesystem" },
+    // para SPA: devolve index.html para qualquer rota não encontrada
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
