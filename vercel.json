@@ -8,9 +8,7 @@
     }
   ],
   "routes": [
-    // permite servir diretamente estáticos (CSS/JS/assets)
     { "handle": "filesystem" },
-    // para SPA: devolve index.html para qualquer rota não encontrada
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
