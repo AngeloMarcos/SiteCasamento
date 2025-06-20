@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './App.css'
 
 import faixaImg        from './assets/faixa.png'
@@ -43,14 +44,12 @@ export default function App() {
       })),
     []
   )
-  const [isInvitationOpen, setInvitationOpen] = useState(false);
-
-  const openInvitation  = () => setInvitationOpen(true);
-  const closeInvitation = () => setInvitationOpen(false);
   
   const [isGuestModalOpen, setGuestModalOpen] = useState(false)
   const [isGiftModalOpen,  setGiftModalOpen]  = useState(false)
   const [isInvitationModalOpen,  setInvitationModalOpen]  = useState(false)
+
+  const navigate = useNavigate()
 
   const [convidados, setConvidados] = useState([])
   useEffect(() => {
@@ -116,10 +115,7 @@ export default function App() {
         onClose={() => setInvitationModalOpen(false)}
         title="Lista de Convidados"
       >
-      <Invitation
-  isOpen={isInvitationOpen}
-  onClose={closeInvitation}
-/>
+        <Invitation onRSVP={() => navigate('/rsvp')} />
 
       </Modal>
 
